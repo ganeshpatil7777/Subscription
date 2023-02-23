@@ -48,4 +48,7 @@ We have deployed all the microservice in seperate container and build using dock
 .config.env 
 This file is used to store the configs
 
+postman collection is added under folder called postmanCollection
+
+
 
