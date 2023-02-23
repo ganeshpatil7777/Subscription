@@ -50,5 +50,7 @@ This file is used to store the configs
 
 postman collection is added under folder called postmanCollection
 
+Mongo DB is selected for persistence of data which can be maintain even if the docker containers are distroyed or shutdown.
+
 
 
