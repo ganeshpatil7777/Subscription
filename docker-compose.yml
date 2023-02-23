@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+
+  subscriptionservice:
+    build:
+      dockerfile: Dockerfile.SubscriptionService
+    depends_on:
+      - "emailservice"
+    ports:
+      - "8081:8081"
+
+  subscriptionpublicservice:
+    build:
+      dockerfile: Dockerfile.PublicService
+    depends_on:
+      - "subscriptionservice"
+    ports:
+      - "8082:8082"
+
+  emailservice:
+    build:
+      dockerfile: Dockerfile.EmailService
+    ports:
+      - "8083:8083"

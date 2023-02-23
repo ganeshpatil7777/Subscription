@@ -1,0 +1,19 @@
+FROM node:17
+
+# Working directory
+WORKDIR /use/src/app
+
+# copy package json file
+COPY package*.json ./
+
+#install packages
+RUN npm install
+
+#copy source file
+COPY . .
+
+# Expose
+EXPOSE 8081
+
+#CMD
+CMD ["node","server.js"]

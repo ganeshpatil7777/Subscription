@@ -1,0 +1,19 @@
+FROM node:17
+
+# Working directory
+WORKDIR /use/src/app
+
+# copy package json file
+COPY package*.json ./
+
+#installl packages
+RUN npm install
+
+#copy source file
+COPY . .
+
+# Expose
+EXPOSE 8082
+
+#CMD
+CMD ["node","publicService.js"]

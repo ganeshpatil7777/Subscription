@@ -1,0 +1,19 @@
+FROM node:17
+
+# Working directory
+WORKDIR /use/src/app
+
+# copy package json file
+COPY package*.json ./
+
+#installl packages
+RUN npm install
+
+#copy source file
+COPY . .
+
+# Expose
+EXPOSE 8083
+
+#CMD
+CMD ["node","emailService.js"]
