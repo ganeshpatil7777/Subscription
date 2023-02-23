@@ -45,6 +45,7 @@ npm run start-email-api - to start email api which is used for sending notificat
 Install done using Docker containers
 We have deployed all the microservice in seperate container and build using docker-compose file linking them together (by adding depend-on)
 
-
+.config.env 
+This file is used to store the configs
 
 
