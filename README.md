@@ -1,6 +1,7 @@
 Subscription API
 
-Dependencies Installed :
+Dependencies Installed 
+
 "express": "^4.18.2",
 Express - The Express philosophy is to provide small, robust tooling for HTTP servers, making it a great solution for single page applications, websites, hybrids, or public HTTP APIs.
 
@@ -27,3 +28,23 @@ pino-http: This is used for logging.
 Swagger-Autogen: This is used for auto generation swagger document.
 
 "swagger-ui-express": "^4.6.1"
+Swagger-UI-Express: This is used for generating UI for swagger document.
+
+"axios": "^1.3.3"
+Axios is used to call api's
+
+
+How to run the project?
+
+npm install - to install all the dependencies mentioned above as packages
+npm run start - to start the subscription microservice which has implementation of all CURD operation using MongoDB as database.
+npm run start-public-api - to start public facing api i.e. backend for frontend
+npm run start-email-api - to start email api which is used for sending notification message now. Implementation is not done to send email.
+
+
+Install done using Docker containers
+We have deployed all the microservice in seperate container and build using docker-compose file linking them together (by adding depend-on)
+
+
+
+
