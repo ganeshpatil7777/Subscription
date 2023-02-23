@@ -5,7 +5,7 @@
     "description": "Subscription public API is a microservice which communicates with Subsciption Service. ",
     "version": "1.0.0"
   },
-  "host": "localhost:undefined",
+  "host": "localhost:8082",
   "basePath": "/",
   "schemes": [
     "http"

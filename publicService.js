@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const http = require('http');
 const axios = require('axios');
+const dotenv = require('dotenv')
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swaggerPublic.json');
 const swaggerAutogen = require("swagger-autogen");
@@ -9,29 +10,33 @@ const outputFile = "./swaggerPublic.json";
 const endpointsFiles = ["./publicService.js"];
 
 app.use(express.json());
+dotenv.config({ path: 'config.env' })
+const PASSWORD = process.env.PASSWORD
 
 app.get('/bff/getSubscription', function (req, res) {
 
     if (!req.query.id) {
-        axios.get('http://subscriptionservice:8081/api/subscription')
+        axios.get('http://subscriptionservice:8081/api/subscription', {
+            headers: {
+                'Authorization': PASSWORD
+            }
+        })
             .then((response) => { res.send(response.data) })
             .catch((error) => {
                 res.send(error)
             })
     } else {
         let id = req.query.id
-        axios.get(`http://subscriptionservice:8081/api/subscription?id=${id}`)
+        axios.get(`http://subscriptionservice:8081/api/subscription?id=${id}`, { headers: { 'Authorization': PASSWORD } })
             .then((response) => { res.send(response.data) })
             .catch((error) => {
                 res.send(error)
             })
     }
-
-
 })
 
 app.post('/bff/createSubscription', function (req, res) {
-    axios.post('http://subscriptionservice:8081/api/createSubscription', req.body)
+    axios.post('http://subscriptionservice:8081/api/createSubscription', req.body, { headers: { 'Authorization': PASSWORD } })
         .then((response) => { res.send(response.data) })
         .catch((error) => {
             res.send(error)
@@ -40,7 +45,7 @@ app.post('/bff/createSubscription', function (req, res) {
 
 app.delete('/bff/deleteSubscription', function (req, res) {
     let id = req.query.id
-    axios.delete(`http://subscriptionservice:8081/api/subscription?id=${id}`,)
+    axios.delete(`http://subscriptionservice:8081/api/subscription?id=${id}`, { headers: { 'Authorization': PASSWORD } })
         .then((response) => { res.send(response.data) })
         .catch((error) => {
             res.send(error)
@@ -64,7 +69,7 @@ const Config = {
         title: "Subscription Public API",
         description: "Subscription public API is a microservice which communicates with Subsciption Service. ",
     },
-    host: `localhost:${process.env.HTTP_PORT}`,
+    host: `localhost:${process.env.HTTP_PORT_PUBLIC_API}`,
     securityDefinitions: {
         api_key: {
             type: "apiKey",

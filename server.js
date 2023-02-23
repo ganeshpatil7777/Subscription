@@ -12,8 +12,9 @@ const app = express()
 
 dotenv.config({ path: 'config.env' })
 
-// read port from environment config file
+// read port and password from environment config file
 const PORT = process.env.HTTP_PORT || 3000
+const PASSWORD = process.env.PASSWORD
 
 //mongoDB connection 
 connectDB()
@@ -21,8 +22,21 @@ connectDB()
 app.use(pino())
 app.use(express.json());
 
+
 //load router
-app.use('/', route)
+app.use('/', isAuth, route)
+
+//security added to subscription service routes
+function isAuth(req, res, next) {
+    const auth = req.headers.authorization
+    if (auth === PASSWORD) {
+        next()
+    }
+    else {
+        res.send(401)
+        res.send('Access forbidden')
+    }
+}
 
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`)
