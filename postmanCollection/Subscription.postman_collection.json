@@ -9,10 +9,16 @@
 			"name": "Create Subscription",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "password",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstName\": \"Vivaan2\",\n    \"email\": \"vivaanpatidflswd277d3de117@gmail.com\",\n    \"gender\": \"Male\",\n    \"flagForConsent\": \"true\"\n}",
+					"raw": "{\n    \"firstName\": \"VivaanPatil\",\n    \"email\": \"vivanptide12abdfs4345ww3220ww3eqww@gmail.com\",\n    \"gender\": \"Male\",\n    \"flagForConsent\": \"true\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -37,10 +43,16 @@
 			"name": "Update Subscription",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "password",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"flagForConsent\": \"false\"\n}",
+					"raw": "{\n    \"flagForConsent\": \"false\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,7 +60,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8081/api/subscription?id=63f444542d4de93d55cf92a0",
+					"raw": "localhost:8081/api/subscription?id=63f6d6fcfe3802e0158379a6",
 					"host": [
 						"localhost"
 					],
@@ -60,7 +72,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "63f444542d4de93d55cf92a0"
+							"value": "63f6d6fcfe3802e0158379a6"
 						}
 					]
 				}
@@ -70,8 +82,17 @@
 		{
 			"name": "Get All Subscription",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "password",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "localhost:8081/api/subscription",
 					"host": [
@@ -81,6 +102,13 @@
 					"path": [
 						"api",
 						"subscription"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "password",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -90,9 +118,15 @@
 			"name": "Get A Subscription By Id",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "password",
+						"type": "default"
+					}
+				],
 				"url": {
-					"raw": "localhost:8081/api/subscription?id=63f44410774e825226e586b4",
+					"raw": "localhost:8081/api/subscription?id=63f64f6caf5891c6b6075184",
 					"host": [
 						"localhost"
 					],
@@ -104,7 +138,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "63f44410774e825226e586b4"
+							"value": "63f64f6caf5891c6b6075184"
 						}
 					]
 				}
@@ -114,10 +148,16 @@
 		{
 			"name": "Delete A Subscription By Id",
 			"request": {
-				"method": "GET",
-				"header": [],
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "password",
+						"type": "default"
+					}
+				],
 				"url": {
-					"raw": "localhost:8081/api/subscription?id=63f44410774e825226e586b4",
+					"raw": "localhost:8081/api/subscription?id=63f64f43af5891c6b6075182",
 					"host": [
 						"localhost"
 					],
@@ -129,7 +169,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "63f44410774e825226e586b4"
+							"value": "63f64f43af5891c6b6075182"
 						}
 					]
 				}
@@ -140,7 +180,18 @@
 			"name": "BFF/GetAllSubscription",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/bff/getSubscription",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"bff",
+						"getSubscription"
+					]
+				}
 			},
 			"response": []
 		},
@@ -150,7 +201,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8082/bff/getsubscription?id=63f5a613ce8db8407539a1bd",
+					"raw": "localhost:8082/bff/getsubscription?id=63f64f6caf5891c6b6075184",
 					"host": [
 						"localhost"
 					],
@@ -162,7 +213,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "63f5a613ce8db8407539a1bd"
+							"value": "63f64f6caf5891c6b6075184"
 						}
 					]
 				}
@@ -176,7 +227,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstName\": \"Vivaan2\",\n    \"email\": \"vivaanpatidflswd277d3de117@gmail.com\",\n    \"gender\": \"Male\",\n    \"flagForConsent\": \"true\"\n}",
+					"raw": "{\n    \"firstName\": \"Ganesh\",\n    \"email\": \"gasneshpatil123w3@gmail.com\",\n    \"gender\": \"Male\",\n    \"flagForConsent\": \"true\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -203,7 +254,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8082/bff/deleteSubscription?id=63f5a613ce8db8407539a1bd",
+					"raw": "localhost:8082/bff/deleteSubscription?id=63f64f6caf5891c6b6075184",
 					"host": [
 						"localhost"
 					],
@@ -215,7 +266,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "63f5a613ce8db8407539a1bd"
+							"value": "63f64f6caf5891c6b6075184"
 						}
 					]
 				}
@@ -226,7 +277,17 @@
 			"name": "Email Service",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/emailNotification",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"emailNotification"
+					]
+				}
 			},
 			"response": []
 		}
